@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Discoveries</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --background-color: #ffffff;
+            --text-color: #000000;
+            --primary-color: #6200ea;
+            --secondary-color: #3700b3;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffeb3b;
+        }
+
+        #dark-mode-toggle {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+        }
+
+        #dark-mode-toggle:hover {
+            background: #1e00a2;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .news-item {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .news-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .news-item img {
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .dark-mode {
+            --background-color: #121212;
+            --text-color: #ffffff;
+            --primary-color: #bb86fc;
+            --secondary-color: #3700b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="title">Novas Descobertas Tecnológicas</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Notícias</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <button id="dark-mode-toggle">Modo Escuro</button>
+
+    <main>
+        <section class="grid-container">
+            <article class="news-item">
+                <h2>Nova IA Revoluciona a Medicina</h2>
+                <img src="img/imagem1.jpg" alt="IA na Medicina">
+                <p>Pesquisadores desenvolveram uma IA capaz de diagnosticar doenças com precisão de 99%...</p>
+            </article>
+
+            <article class="news-item">
+                <h2>Baterias que duram 10 anos?</h2>
+                <img src="img/Imagem2.jpgmagem2.jpg" alt="Bateria de longa duração">
+                <p>Uma nova tecnologia promete baterias de lítio com vida útil ampliada para até 10 anos...</p>
+            </article>
+
+            <article class="news-item">
+                <h2>Computadores Quânticos: O Futuro Chegou</h2>
+                <img src="img/imagem3.jpg" alt="Computador Quântico">
+                <p>Avanços recentes indicam que os computadores quânticos podem estar mais próximos da realidade...</p>
+            </article>
+
+            <article class="news-item">
+                <h2>Robôs Cirúrgicos Inteligentes</h2>
+                <img src="img/imagem4.jpg" alt="Robôs Cirúrgicos">
+                <p>Novos robôs assistidos por IA podem realizar cirurgias complexas com mais precisão...</p>
+            </article>
+
+            <article class="news-item">
+                <h2>Carros Autônomos em 2025?</h2>
+                <img src="img/imagem5.jpg" alt="Carros Autônomos">
+                <p>Montadoras estão acelerando os testes para lançar veículos 100% autônomos já no próximo ano...</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Tech Discoveries. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.getElementById("dark-mode-toggle");
+            const body = document.body;
+            const title = document.getElementById("title");
+
+            toggleButton.addEventListener("click", function () {
+                body.classList.toggle("dark-mode");
+            });
+
+            function typeWriter(elemento) {
+                const textoArray = elemento.innerHTML.split('');
+                elemento.innerHTML = '';
+                textoArray.forEach((letra, i) => {
+                    setTimeout(() => elemento.innerHTML += letra, 75 * i);
+                });
+            }
+
+            typeWriter(title);
+        });
+    </script>
+</body>
+</html>
+
